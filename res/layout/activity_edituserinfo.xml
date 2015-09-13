@@ -1,0 +1,145 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/view_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@drawable/bj2"
+        android:gravity="center" >
+
+        <com.honestwalker.androidutils.views.AsyncCircleImageView
+            android:id="@id/imageview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageview1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/margin_s3"
+            android:paddingLeft="@dimen/margin_b5"
+            android:paddingRight="@dimen/margin_b5"
+            android:paddingTop="@dimen/margin_s3"
+            android:text="编辑头像"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="上课区域"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/youjian" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/margin"
+            android:background="#EEEEEE" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="上课类别"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/youjian" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/margin"
+            android:background="#EEEEEE" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin"
+            android:text="个人介绍"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:background="@drawable/xmlbg_edit"
+            android:gravity="left|top"
+            android:hint="不超于20字号"
+            android:paddingBottom="@dimen/margin_b5"
+            android:paddingLeft="@dimen/margin_b3"
+            android:paddingRight="@dimen/margin_b3"
+            android:paddingTop="@dimen/margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_s1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin"
+            android:text="执教经历"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:background="@drawable/xmlbg_edit"
+            android:gravity="left|top"
+            android:hint="不超于20字号"
+            android:paddingBottom="@dimen/margin_b5"
+            android:paddingLeft="@dimen/margin_b3"
+            android:paddingRight="@dimen/margin_b3"
+            android:paddingTop="@dimen/margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_s1" />
+    </LinearLayout>
+
+</LinearLayout>

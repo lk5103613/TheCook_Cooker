@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="title_normal">#991017</color>
+    <color name="title_pressed">#1f1f1f</color>
+    <color name="background">#f8f8f8</color>
+    <color name="et_background">#AA666666</color>
+    <color name="et_background_deep">#BB666666</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="half_opaque">#55000000</color>
+    <color name="half_opaque_pressed">#aa000000</color>
+    <color name="border_shallow">#dddddd</color>
+    <color name="border">#C8C8C8</color>
+    <color name="border_deep">#656364</color>
+    <color name="border_black">#66000000</color>
+    <color name="menu_text_color">#898989</color>
+    <color name="orange_typical">#aacf5b31</color>
+    <color name="text_gray">#909090</color>
+    <color name="text_deepgray">#ff666666</color>
+    <color name="orange_btn">#de4c18</color>
+    <color name="orange_btn_dark">#ce4c18</color>
+    <color name="transparent_white">#00FFFFFF</color>
+    <color name="gray_bg">#F0F0F0</color>
+    <color name="gray_bg_pressed">#E0E0E0</color>
+
+    <!-- 数量控件的背景颜色 -->
+    <color name="qty_bg_color">#df4d19</color>
+    <color name="qty_text_color">#ffffff</color>
+
+    <!-- 字体颜色 -->
+    <color name="text_orange">#ffff4300</color>
+    <color name="mask">#33000000</color>
+    <color name="tab_bg">#bf4722</color>
+    <color name="tab_bg_sel">#ffffff</color>
+    <color name="province_line_border">#D0D0D0</color>
+    <color name="choise_color_1">#cecece</color>
+    <color name="choise_color_2">#999999</color>
+    <color name="choise_color_3">#616161</color>
+    <color name="choise_color_4">#3a3a3a</color>
+    <color name="btn_red_normal_bg_color">#ff7875</color>
+    <color name="btn_red_pressed_bg_color">#f99c9a</color>
+
+</resources>

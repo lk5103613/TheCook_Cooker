@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn1Click"
+            android:text="编辑用户信息" />
+
+        <Button
+            android:id="@id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn2Click"
+            android:text="修改金额" />
+
+        <Button
+            android:id="@id/btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn3Click"
+            android:text="我的订单" />
+
+        <Button
+            android:id="@id/btn7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn7Click"
+            android:text="我的订单2" />
+
+        <Button
+            android:id="@id/btn6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn6Click"
+            android:text="确认订单" />
+
+        <Button
+            android:id="@id/btn4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn4Click"
+            android:text="厨师认证" />
+
+        <Button
+            android:id="@id/btn8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn8Click"
+            android:text="厨师认证2" />
+
+        <Button
+            android:id="@id/btn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn5Click"
+            android:text="我是大厨" />
+
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn9Click"
+            android:text="空挡时间设置1" />
+
+        <Button
+            android:id="@+id/btn10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn10Click"
+            android:text="注册" />
+
+        <Button
+            android:id="@+id/btn11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn11Click"
+            android:text="厨师认证3" />
+       
+        <Button
+            android:id="@+id/btn12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn12Click"
+            android:text="加菜" />
+       
+        <Button
+            android:id="@+id/btn13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btn13Click"
+            android:text="服务记录" />
+    </LinearLayout>
+
+</ScrollView>

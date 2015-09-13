@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="联系信息："
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dip" >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="贵宾万先生"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/name"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dp"
+            android:text="13890984755"
+            android:textColor="#bf4722"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="收货地址：浙江宁波海曙海宁路456号"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingTop="5dip"
+        android:text="用餐信息："
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="订单总额：￥456.00	"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/pay_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="（已付60元，待付396元）"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/dinner_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingTop="5dip"
+        android:text="用餐时间：2015-05-06 18:30"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/serv_cnt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="服务人数：3~5"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="厨房面积：5平"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/need_tool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="需要带餐厨具：中式"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/pay_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="支付方式：上门支付"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/spec_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:text="特殊要求：最好来个有多年厨师经验的，不要放味精..."
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:id="@+id/order_detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/step1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/order_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/home_call"
+            android:text="确认订单"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/step2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_s3"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_btn1"
+                android:gravity="center"
+                android:padding="@dimen/margin"
+                android:text="修改金额"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_b1" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_s3"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_btn"
+                android:gravity="center"
+                android:padding="@dimen/margin"
+                android:text="加菜"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_b1" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/order_complete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/xmlbg_btn"
+            android:gravity="center"
+            android:padding="@dimen/margin"
+            android:text="完成服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_b1" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/margin" >
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin"
+        android:src="@drawable/image" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@id/textview1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="广东烧鸭套餐"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_b1" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_launcher" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@id/textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="￥28"
+            android:textColor="#BBBBBB"
+            android:textSize="@dimen/text_size_b1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/jian" />
+
+            <TextView
+                android:id="@id/textview3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="1份"
+                android:textColor="#BBBBBB"
+                android:textSize="@dimen/text_size_s1" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/add" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/view_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开始时间："
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/xmlbg_edit"
+                android:padding="@dimen/margin"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="结束时间："
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/xmlbg_edit"
+                android:padding="@dimen/margin"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_b5"
+            android:text="重复日期："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_week"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="weekClick"
+                android:paddingBottom="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:text="周一"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_week"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="weekClick"
+                android:paddingBottom="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:text="周二"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_week"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="weekClick"
+                android:paddingBottom="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:text="周三"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_week"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="weekClick"
+                android:paddingBottom="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:text="周四"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_week"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="weekClick"
+                android:paddingBottom="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:text="周五"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_week"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="weekClick"
+                android:paddingBottom="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:text="周六"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_week"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="weekClick"
+                android:paddingBottom="@dimen/margin"
+                android:paddingTop="@dimen/margin"
+                android:text="周日"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <com.like.wheel.widget.views.WheelView
+            android:id="@+id/numberpick1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:showDividers="none" />
+
+        <com.like.wheel.widget.views.WheelView
+            android:id="@+id/numberpick2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.like.wheel.widget.views.WheelView
+            android:id="@+id/numberpick3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

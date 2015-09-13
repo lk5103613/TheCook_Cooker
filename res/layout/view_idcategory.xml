@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#BB000000"
+    android:orientation="vertical"
+    android:padding="@dimen/margin" >
+
+    <TextView
+        android:id="@+id/bang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin"
+        android:text="帮厨"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_b1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BBBBBB" />
+
+    <TextView
+        android:id="@+id/big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin"
+        android:text="大厨"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_b1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BBBBBB" />
+
+    <TextView
+        android:id="@+id/fu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin"
+        android:text="服务员"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_b1" />
+
+</LinearLayout>

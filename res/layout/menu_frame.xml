@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="#C30D22" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="订单详情"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <com.john.guo.widget.RoundImageView
+            android:id="@+id/user_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:onClick="toggleMenu"
+            android:scaleType="fitXY"
+            android:src="@drawable/taocan_face" />
+
+        <LinearLayout
+            android:id="@+id/pl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="toComment"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="服务记录"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        
+        <com.handmark.pulltorefresh.library.PullToRefreshListView 
+            android:id="@+id/order_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        
+        <include layout="@layout/sliding_menu" />
+        <include layout="@layout/activity_servicerecord" />
+        
+        
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

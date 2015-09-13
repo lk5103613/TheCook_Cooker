@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/title_normal" >
+
+        <TextView
+            android:id="@id/title_middle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_tv_text_size" />
+        
+        <TextView
+            android:id="@id/title_middle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:clickable="true"
+            android:onClick="toLogin"
+            android:text="登陆"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/margin" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身份："
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:background="@drawable/xmlbg_rectedit"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/role_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:padding="@dimen/margin"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="#EEEEEE" />
+
+                <ImageView
+                    android:id="@id/imageview1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
+                    android:onClick="showDrop"
+                    android:clickable="true"
+                    android:src="@drawable/icon_idcategory" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机："
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/phone_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_rectedit"
+                android:inputType="number"
+                android:maxLength="11"
+                android:padding="@dimen/margin"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_weight="1"
+                android:background="@drawable/xmlbg_btn1"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/margin"
+                android:text="获取验证码"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="验证码："
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:background="@drawable/xmlbg_rectedit"
+                android:padding="@dimen/margin"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码："
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/psw_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:background="@drawable/xmlbg_rectedit"
+                android:inputType="textPassword"
+                android:padding="@dimen/margin"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_b5"
+            android:background="@drawable/xmlbg_btn3"
+            android:gravity="center"
+            android:padding="@dimen/margin"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_b1" />
+    </LinearLayout>
+
+</LinearLayout>

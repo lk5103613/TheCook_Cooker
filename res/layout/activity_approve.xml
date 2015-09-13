@@ -1,0 +1,444 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/title_normal" >
+
+        <TextView
+            android:id="@id/title_middle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="厨师认证"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_tv_text_size" />
+
+        <TextView
+            android:id="@id/title_middle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="toReg"
+            android:singleLine="true"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/icon" />
+
+                <com.john.guo.widget.RoundImageView
+                    android:id="@+id/user_icon"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:clickable="true"
+                    android:onClick="changeUserIcon"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="姓名:"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:background="@drawable/xmlbg_rectedit"
+                        android:padding="5dp"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:text="电话:"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/tel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:background="@drawable/xmlbg_rectedit"
+                        android:padding="5dp"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:inputType="number" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="地址:"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:id="@+id/provience"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:clickable="true"
+                        android:onClick="openDrop"
+                        android:layout_weight="1"
+                        android:background="@drawable/xmlbg_rectedit"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/provice_show"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="省"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="#EEEEEE" />
+
+                        <ImageView
+                            android:id="@+id/provience_target"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/icon_idcategory" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/city"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:clickable="true"
+                        android:onClick="openDrop"
+                        android:layout_weight="1"
+                        android:background="@drawable/xmlbg_rectedit"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/city_show"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="市"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="#EEEEEE" />
+
+                        <ImageView
+                            android:id="@+id/city_target"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/icon_idcategory" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/district"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:clickable="true"
+                        android:onClick="openDrop"
+                        android:layout_weight="1"
+                        android:background="@drawable/xmlbg_rectedit"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/district_show"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="区"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="#EEEEEE" />
+
+                        <ImageView
+                            android:id="@+id/district_target"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/icon_idcategory" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/xmlbg_rectedit"
+                    android:padding="5dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="个人经历:"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/introduction"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/xmlbg_rectedit"
+                    android:gravity="left|top"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="从业时间"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/date_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/xmlbg_rectedit"
+                    android:padding="5dp"
+                    android:text="时间选择器"
+                    android:textColor="#000000"
+                    android:onClick="openDrop"
+                    android:clickable="true"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="擅长菜系:"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/xc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_bg"
+                        android:onClick="checkGoodAt"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="湘菜"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_bg"
+                        android:gravity="center"
+                        android:onClick="checkGoodAt"
+                        android:clickable="true"
+                        android:padding="5dp"
+                        android:text="川菜"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/bbc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_bg"
+                        android:onClick="checkGoodAt"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="本帮菜"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/yc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_bg"
+                        android:onClick="checkGoodAt"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="粤菜"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="所获证书:"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/cer_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/xmlbg_rectedit"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:padding="10dp" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="58dp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        android:adjustViewBounds="true"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="58dp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        android:adjustViewBounds="true"/>
+                    
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="58dp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        android:adjustViewBounds="true"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="58dp"
+                        android:onClick="uploadCer"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/certificate" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/xmlbg_btn"
+                    android:text="提交申请"
+                    android:textColor="#FFFFFF"
+                    android:onClick="update"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

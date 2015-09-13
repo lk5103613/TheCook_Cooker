@@ -1,0 +1,30 @@
+<resources>
+
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
+
+    <style name="Theme_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    
+    <style name="theme_activity" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowAnimationStyle">@style/slide</item>
+    </style>
+
+    <style name="slide" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/in_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/out_from_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/back_from_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/remove_to_right</item>
+    </style>
+    
+    <style name="Anim_slide" parent="android:Theme.NoTitleBar">
+        <item name="android:windowAnimationStyle">@style/slide</item>
+    </style>
+    
+
+</resources>
