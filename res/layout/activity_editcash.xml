@@ -60,7 +60,8 @@
             android:background="@drawable/xmlbg_edit"
             android:padding="@dimen/margin"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size" />
+            android:textSize="@dimen/text_size" 
+            android:inputType="number"/>
     </LinearLayout>
 
     <TextView
