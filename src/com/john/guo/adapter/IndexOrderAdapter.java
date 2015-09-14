@@ -6,7 +6,6 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.Intent;
-import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +25,7 @@ import com.dcjd.cook.cs.R;
 import com.john.guo.entity.CommonResult;
 import com.john.guo.entity.IndexOrderEntity;
 import com.john.guo.entity.IndexOrderEntity.OrderDetailItem;
+import com.john.guo.laowangproject.act.AddFootActivity;
 import com.john.guo.laowangproject.act.EditCashActivity;
 import com.john.guo.network.APIS;
 import com.john.guo.network.DataFetcher;
@@ -226,6 +226,14 @@ public class IndexOrderAdapter extends BaseAdapter {
 					intent.putExtras(params);
 					mContext.startActivity(intent);
 					
+				}
+			});
+			
+			sAddDishes.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(mContext, AddFootActivity.class);
+					mContext.startActivity(intent);
 				}
 			});
 			

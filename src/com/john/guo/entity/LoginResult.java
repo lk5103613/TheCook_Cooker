@@ -3,6 +3,8 @@ package com.john.guo.entity;
 import com.google.gson.annotations.SerializedName;
 
 public class LoginResult {
+	
+	public final static String UN_PASS = "3";
 
 	public String cid;
 	public String avatar;
@@ -33,6 +35,7 @@ public class LoginResult {
 	public String certificate5;
 	public String certificate6;
 	public String certificate7;
+	public String reason;
 	public String truename;
 	@SerializedName("service_cnt")
 	public String serviceCnt;

@@ -6,13 +6,17 @@
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="@dimen/margin" >
+    
+    <CheckBox 
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        style="@style/CustomCheckboxTheme" />
 
     <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/ic_launcher" />
-
-    <ImageView
+        android:id="@+id/pack_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin"
@@ -40,10 +44,11 @@
                 android:textSize="@dimen/text_size_b1" />
 
             <ImageView
+                android:id="@+id/delete"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/delete" />
         </RelativeLayout>
 
         <TextView
@@ -63,6 +68,7 @@
             android:gravity="center_vertical" >
 
             <ImageView
+                android:id="@+id/remove"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentLeft="true"
@@ -78,6 +84,7 @@
                 android:textSize="@dimen/text_size_s1" />
 
             <ImageView
+                android:id="@+id/add"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentRight="true"

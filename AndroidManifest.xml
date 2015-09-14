@@ -62,7 +62,6 @@
             android:name="com.john.guo.laowangproject.act.MyOrder2Activity"
             android:screenOrientation="portrait"
             android:theme="@style/theme_activity" >
-            
         </activity>
         <activity
             android:name="com.john.guo.laowangproject.act.MyOrder3Activity"
@@ -72,7 +71,8 @@
         <activity
             android:name="com.john.guo.laowangproject.act.CsrzActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/theme_activity" />
+            android:theme="@style/theme_activity" >
+        </activity>
         <activity
             android:name="com.john.guo.laowangproject.act.Csrz2Activity"
             android:screenOrientation="portrait"
@@ -90,8 +90,9 @@
             android:name="com.john.guo.laowangproject.act.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/theme_activity" >
-           <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -116,7 +117,6 @@
             android:name="com.john.guo.laowangproject.act.SpaceTimeSetting2Activity"
             android:screenOrientation="portrait"
             android:theme="@style/theme_activity" >
-             
         </activity>
 
         <!-- JPUSH START -->

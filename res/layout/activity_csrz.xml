@@ -45,6 +45,7 @@
             android:textSize="@dimen/text_size" />
 
         <TextView
+            android:id="@+id/reason"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"

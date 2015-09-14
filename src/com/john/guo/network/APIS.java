@@ -35,4 +35,7 @@ public class APIS {
 	
 	//修改订单金额
 	public final static String UPDATE_ORDER_FIGURE = BASE_URL+"/cook/index.php/CookOrder/editPriceFn?order_id=%1&cook_id=%2&old_money=%3&money=%4&flag=%5&reason=%6";
+	public final static String GET_SERVICE_LOG = BASE_URL + "/cook/index.php/AppCook/cookServiceLogFn?cid=%1";
+	
+	public static final String GET_MENU = BASE_URL + "/index.php/appPack/findPageList?currentPage=%1";
 }

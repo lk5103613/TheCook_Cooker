@@ -52,7 +52,13 @@ public class LoginActivity extends MyBaseActivity {
 							mLoginSharef.edit().putString(LOGIN_USER, response.toString()).commit();
 						}
 					}).start();
-					toIndex();
+					if(result.status.equals(LoginResult.UN_PASS)) {
+						Intent intent = new Intent(mContext, CsrzActivity.class);
+						intent.putExtra("login_result", response.toString());
+						startActivity(intent);
+					} else {
+						toIndex();
+					}
 					LoginActivity.this.finish();
 				} else {
 					Toast.makeText(mContext, "用户名或密码错误", Toast.LENGTH_SHORT).show();

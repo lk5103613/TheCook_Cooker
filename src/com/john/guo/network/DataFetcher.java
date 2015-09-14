@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -13,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 public class DataFetcher {
@@ -117,6 +119,19 @@ public class DataFetcher {
 	
 	public void fetchUpdateFigure(String orderId, String cookId, String oldMoney, String money, String flag,String reason,Listener<JSONObject> listener, ErrorListener errorListener){
 		String url = UrlParamGenerator.getPath(APIS.UPDATE_ORDER_FIGURE, orderId, cookId,oldMoney,money,flag, reason);
+		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url,
+				null, listener, errorListener);
+		mQueue.add(request);
+	}
+	
+	public void fetchServiceLog(String cookId, Listener<JSONArray> listener, ErrorListener errorListener) {
+		String url = UrlParamGenerator.getPath(APIS.GET_SERVICE_LOG, cookId);
+		JsonArrayRequest request = new JsonArrayRequest(url, listener, errorListener);
+		mQueue.add(request);
+	}
+	
+	public void fetchMenu(String currentPage, Listener<JSONObject> listener, ErrorListener errorListener) {
+		String url = UrlParamGenerator.getPath(APIS.GET_MENU, currentPage);
 		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url,
 				null, listener, errorListener);
 		mQueue.add(request);
