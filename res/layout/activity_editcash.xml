@@ -21,6 +21,7 @@
             android:textSize="@dimen/text_size" />
 
         <TextView
+            android:id="@+id/total_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2546.00"
@@ -37,17 +38,22 @@
         android:orientation="horizontal" >
 
         <ImageView
+            android:id="@+id/plus_btn"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/icon_addcash2" />
+            android:src="@drawable/icon_addcash2" 
+            android:onClick="change"/>
 
         <ImageView
+            android:id="@+id/minus_btn"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="@dimen/margin"
-            android:src="@drawable/icon_jiancash2" />
+            android:src="@drawable/icon_jiancash2" 
+            android:onClick="change"/>
 
         <EditText
+            android:id="@+id/dif_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin"
@@ -67,6 +73,7 @@
         android:textSize="@dimen/text_size" />
 
     <TextView
+        android:id="@+id/after_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_b2"
@@ -105,6 +112,7 @@
         android:padding="@dimen/margin"
         android:text="提交"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_b2" />
+        android:textSize="@dimen/text_size_b2"
+        android:onClick="commit" />
 
 </LinearLayout>

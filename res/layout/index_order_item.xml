@@ -150,6 +150,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:padding="10dp"
             android:background="@drawable/home_call"
             android:text="确认订单"
             android:textColor="#ffffff" />
@@ -169,6 +170,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/change_figure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_s3"
@@ -181,6 +183,7 @@
                 android:textSize="@dimen/text_size_b1" />
 
             <Button
+                android:id="@+id/add_dishes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_s3"

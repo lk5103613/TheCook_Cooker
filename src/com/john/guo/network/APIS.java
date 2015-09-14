@@ -30,4 +30,9 @@ public class APIS {
 	public final static String UPDATE_INFO = BASE_URL
 			+ "/cook/index.php/appCook/updateCookInfoFn?cid=%1&truename=%2&mp=%3&province=%4&city=%5&district=%6&introduction=%7&caixi_style=%8&certificate0=%9&certificate1=%10&certificate2=%11&certificate3=%12&work_fromday=%13&avatar=%14";
 
+	//添加空闲时间
+	public final static String ADD_SPACE_TIME = BASE_URL+"/cook/index.php/Cook/setCookTimeFn?cook_id=%1&cook_mp=%2&week_days=%3&from_time=%4&to_time=%5";
+	
+	//修改订单金额
+	public final static String UPDATE_ORDER_FIGURE = BASE_URL+"/cook/index.php/CookOrder/editPriceFn?order_id=%1&cook_id=%2&old_money=%3&money=%4&flag=%5";
 }

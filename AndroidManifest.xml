@@ -41,14 +41,15 @@
         android:label="@string/app_name" >
         <activity
             android:name="com.john.guo.laowangproject.act.IndexOrderUI"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/theme_activity"
-            android:label="@string/app_name" >
+            android:theme="@style/theme_activity" >
         </activity>
         <activity
             android:name="com.john.guo.laowangproject.act.EditCashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/theme_activity" />
+            android:theme="@style/theme_activity" >
+        </activity>
         <activity
             android:name="com.john.guo.laowangproject.act.EditUserInfoActivity"
             android:screenOrientation="portrait"
@@ -60,11 +61,14 @@
         <activity
             android:name="com.john.guo.laowangproject.act.MyOrder2Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/theme_activity" />
+            android:theme="@style/theme_activity" >
+            
+        </activity>
         <activity
             android:name="com.john.guo.laowangproject.act.MyOrder3Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/theme_activity" />
+            android:theme="@style/theme_activity" >
+        </activity>
         <activity
             android:name="com.john.guo.laowangproject.act.CsrzActivity"
             android:screenOrientation="portrait"
@@ -80,14 +84,14 @@
         <activity
             android:name="com.john.guo.laowangproject.act.SpaceTimeSettingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/theme_activity" />
+            android:theme="@style/theme_activity" >
+        </activity>
         <activity
             android:name="com.john.guo.laowangproject.act.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/theme_activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -114,7 +118,7 @@
             android:theme="@style/theme_activity" >
         </activity>
 
-<!--         	JPUSH START  -->
+        <!-- JPUSH START -->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -161,7 +165,8 @@
             android:enabled="true"
             android:exported="false" >
             <intent-filter android:priority="1000" >
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <!-- Required  显示通知栏 -->
                 <category android:name="com.dcjd.cook.cs" />
             </intent-filter>
             <intent-filter>
@@ -184,13 +189,18 @@
             android:enabled="true"
             android:exported="false" >
             <intent-filter>
-                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  用户注册SDK的intent -->
                 <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
-                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
-                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
-                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
                 <category android:name="com.dcjd.cook.cs" />
             </intent-filter>
         </receiver>
@@ -203,7 +213,7 @@
             android:name="JPUSH_APPKEY"
             android:value="7c3a756febe5ad920f65e7dd" />
 
-<!--         	JPUSH END  -->
+        <!-- JPUSH END -->
     </application>
 
 </manifest>

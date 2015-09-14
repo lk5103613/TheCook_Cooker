@@ -27,6 +27,7 @@
                 android:textSize="@dimen/text_size" />
 
             <EditText
+                android:id="@+id/from_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/xmlbg_edit"
@@ -50,6 +51,7 @@
                 android:textSize="@dimen/text_size" />
 
             <EditText
+                android:id="@+id/to_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/xmlbg_edit"
@@ -184,20 +186,20 @@
         android:orientation="horizontal" >
 
         <com.like.wheel.widget.views.WheelView
-            android:id="@+id/numberpick1"
+            android:id="@+id/hour_wheel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:showDividers="none" />
 
         <com.like.wheel.widget.views.WheelView
-            android:id="@+id/numberpick2"
+            android:id="@+id/min_wheel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <com.like.wheel.widget.views.WheelView
-            android:id="@+id/numberpick3"
+            android:id="@+id/unit_wheel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />

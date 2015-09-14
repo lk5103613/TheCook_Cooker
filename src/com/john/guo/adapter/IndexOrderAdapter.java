@@ -5,6 +5,9 @@ import java.util.List;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
+import android.hardware.camera2.TotalCaptureResult;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,6 +26,7 @@ import com.dcjd.cook.cs.R;
 import com.john.guo.entity.CommonResult;
 import com.john.guo.entity.IndexOrderEntity;
 import com.john.guo.entity.IndexOrderEntity.OrderDetailItem;
+import com.john.guo.laowangproject.act.EditCashActivity;
 import com.john.guo.network.APIS;
 import com.john.guo.network.DataFetcher;
 import com.john.guo.network.GsonUtil;
@@ -35,6 +39,8 @@ public class IndexOrderAdapter extends BaseAdapter {
 	private ImageLoader mImgLoader;
 	private DataFetcher mDataFetcher;
 	private Context mContext;
+	
+	private float mTotalMoney;
 	
 	public IndexOrderAdapter(Context context, List<IndexOrderEntity> orders) {
 		this.mOrders = orders;
@@ -94,6 +100,8 @@ public class IndexOrderAdapter extends BaseAdapter {
 			vh.sStep2.setVisibility(View.VISIBLE);
 		}
 		vh.sOrderConfirm.setTag(entity.orderNo);
+		vh.sChangeFigure.setTag(entity.orderNo);
+		
 		if(entity.itemList != null) {
 			for(int i=0; i<entity.itemList.size(); i++) {
 				OrderDetailItem item = entity.itemList.get(i);
@@ -107,6 +115,7 @@ public class IndexOrderAdapter extends BaseAdapter {
 				price.setText(item.price);
 				cnt.setText(item.soldCnt);
 				vh.sDetailContainer.addView(v);
+				mTotalMoney += Float.parseFloat(item.price);
 			}
 		}
 		return convertView;
@@ -134,6 +143,8 @@ public class IndexOrderAdapter extends BaseAdapter {
 		public ViewGroup sStep2;
 		public Button sOrderConfirm;
 		public Button sOrderComplete;
+		public Button sChangeFigure;
+		public Button sAddDishes;
 		
 		public ViewHolder(View convertView) {
 			sLblName = (TextView) convertView.findViewById(R.id.name);
@@ -152,6 +163,8 @@ public class IndexOrderAdapter extends BaseAdapter {
 			sStep2 = (ViewGroup) convertView.findViewById(R.id.step2);
 			sOrderConfirm = (Button) convertView.findViewById(R.id.order_confirm);
 			sOrderComplete = (Button) convertView.findViewById(R.id.order_complete);
+			sChangeFigure = (Button) convertView.findViewById(R.id.change_figure);
+			sAddDishes = (Button)convertView.findViewById(R.id.add_dishes);
 			
 			sOrderConfirm.setOnClickListener(new OnClickListener() {
 				@Override
@@ -163,6 +176,8 @@ public class IndexOrderAdapter extends BaseAdapter {
 							CommonResult result = GsonUtil.gson.fromJson(response.toString(), CommonResult.class);
 							if(result.code == 1) {
 								Toast.makeText(mContext, "确认订单成功", Toast.LENGTH_SHORT).show();
+								sStep1.setVisibility(View.GONE);
+								sStep2.setVisibility(View.VISIBLE);
 							} else {
 								Toast.makeText(mContext, "确认订单失败", Toast.LENGTH_SHORT).show();
 							}
@@ -195,6 +210,21 @@ public class IndexOrderAdapter extends BaseAdapter {
 							Toast.makeText(mContext, "请检查网络", Toast.LENGTH_SHORT).show();
 						}
 					});
+				}
+			});
+			
+			sChangeFigure.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					String orderId = (String) v.getTag();
+					Bundle params = new Bundle();
+					params.putString("order_id", orderId);
+					params.putFloat("total_money", mTotalMoney);
+					Intent intent = new Intent(mContext, EditCashActivity.class);
+					intent.putExtras(params);
+					mContext.startActivity(intent);
+					
 				}
 			});
 			

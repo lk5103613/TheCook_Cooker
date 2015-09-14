@@ -48,7 +48,22 @@ public class DateUtil {
 		    e.printStackTrace();
 		    }
 		    return rightNow.getActualMaximum(Calendar.DAY_OF_MONTH);//根据年月 获取月份天数
+	}
+	
+	public static String formatTime(String timeStr){
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+		try {
+			Date date = sdf.parse(timeStr);
+			SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
+			String str = format.format(date);
+			return str;
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
+		return "";
+		
+	}
 	
 
 }
