@@ -110,15 +110,13 @@ public class DataFetcher {
 			Listener<JSONObject> listener, ErrorListener errorListener){
 		
 		String url = UrlParamGenerator.getPath(APIS.ADD_SPACE_TIME, cookId, cookMp,weekDays,fromTime,toTime);
-		System.out.println("url " + url);
 		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url,
 				null, listener, errorListener);
 		mQueue.add(request);
 	}
 	
-	public void fetchUpdateFigure(String orderId, String cookId, String oldMoney, String money, String flag,Listener<JSONObject> listener, ErrorListener errorListener){
-		String url = UrlParamGenerator.getPath(APIS.UPDATE_ORDER_FIGURE, orderId, cookId,oldMoney,money,flag);
-		System.out.println("url " + url);
+	public void fetchUpdateFigure(String orderId, String cookId, String oldMoney, String money, String flag,String reason,Listener<JSONObject> listener, ErrorListener errorListener){
+		String url = UrlParamGenerator.getPath(APIS.UPDATE_ORDER_FIGURE, orderId, cookId,oldMoney,money,flag, reason);
 		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url,
 				null, listener, errorListener);
 		mQueue.add(request);

@@ -59,8 +59,8 @@ public class SpaceTimeSetting2Activity extends MyBaseActivity implements
 		mTitleView = (TextView) findViewById(R.id.title_middle_tv);
 		mFromTime = (EditText) findViewById(R.id.from_time);
 		mToTime = (EditText) findViewById(R.id.to_time);
-		mFromTime.setInputType(InputType.TYPE_NULL); 
-		mToTime.setInputType(InputType.TYPE_NULL);
+//		mFromTime.setInputType(InputType.TYPE_NULL); 
+//		mToTime.setInputType(InputType.TYPE_NULL);
 
 		mFromTime.setOnFocusChangeListener(this);
 		mToTime.setOnFocusChangeListener(this);
@@ -212,10 +212,11 @@ public class SpaceTimeSetting2Activity extends MyBaseActivity implements
 				fromTime, toTime, new Response.Listener<JSONObject>() {
 					@Override
 					public void onResponse(JSONObject response) {
-						System.out.println("response");
 						CommonResult result = GsonUtil.gson.fromJson(response.toString(), CommonResult.class);
 						if (result.code==1) {
-							
+							Toast.makeText(mContext, "设置成功", Toast.LENGTH_SHORT).show();
+						} else {
+							Toast.makeText(mContext, "设置失败", Toast.LENGTH_SHORT).show();
 						}
 					}
 

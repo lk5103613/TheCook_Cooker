@@ -23,6 +23,7 @@ public class EditCashActivity extends MyBaseActivity {
 	private TextView mAfterChange;
 	private EditText mDifEdit;
 	private TextView mTotalMoney;
+	private EditText mReason;
 	
 	private float oldMoney;
 	private float money;
@@ -40,6 +41,7 @@ public class EditCashActivity extends MyBaseActivity {
 		mAfterChange = (TextView) findViewById(R.id.after_change);
 		mDifEdit = (EditText) findViewById(R.id.dif_edit);
 		mTotalMoney = (TextView) findViewById(R.id.total_money);
+		mReason = (EditText) findViewById(R.id.reason);
 		
 		mTitle.setText("修改金额");
 		
@@ -78,7 +80,9 @@ public class EditCashActivity extends MyBaseActivity {
 	public void commit(View v){
 		
 		LoginResult loginResult = getLoginUser();
-		mDataFetcher.fetchUpdateFigure(orderId, loginResult.cid, oldMoney+"", money+"", flag+"",new Response.Listener<JSONObject>() {
+		String reason = mReason.getText().toString();
+		
+		mDataFetcher.fetchUpdateFigure(orderId, loginResult.cid, oldMoney+"", money+"", flag+"", reason,new Response.Listener<JSONObject>() {
 			@Override
 			public void onResponse(JSONObject response) {
 				CommonResult result = GsonUtil.gson.fromJson(response.toString(), CommonResult.class);

@@ -34,5 +34,5 @@ public class APIS {
 	public final static String ADD_SPACE_TIME = BASE_URL+"/cook/index.php/Cook/setCookTimeFn?cook_id=%1&cook_mp=%2&week_days=%3&from_time=%4&to_time=%5";
 	
 	//修改订单金额
-	public final static String UPDATE_ORDER_FIGURE = BASE_URL+"/cook/index.php/CookOrder/editPriceFn?order_id=%1&cook_id=%2&old_money=%3&money=%4&flag=%5";
+	public final static String UPDATE_ORDER_FIGURE = BASE_URL+"/cook/index.php/CookOrder/editPriceFn?order_id=%1&cook_id=%2&old_money=%3&money=%4&flag=%5&reason=%6";
 }
