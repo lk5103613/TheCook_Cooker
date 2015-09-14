@@ -101,6 +101,7 @@ public class IndexOrderAdapter extends BaseAdapter {
 		}
 		vh.sOrderConfirm.setTag(entity.orderNo);
 		vh.sChangeFigure.setTag(entity.orderNo);
+		vh.sOrderComplete.setTag(entity.orderNo);
 		
 		if(entity.itemList != null) {
 			for(int i=0; i<entity.itemList.size(); i++) {
