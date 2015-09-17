@@ -103,7 +103,6 @@ public class DataFetcher {
 
 	public void fetchApprove(List<String> params,
 			Listener<JSONObject> listener, ErrorListener errorListener) {
-
 		String url = UrlParamGenerator.getPath(APIS.UPDATE_INFO, params);
 		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url,
 				null, listener, errorListener);
@@ -112,7 +111,6 @@ public class DataFetcher {
 	
 	public void fetchAddSpaceTime(String cookId, String cookMp, String weekDays, String fromTime, String toTime,
 			Listener<JSONObject> listener, ErrorListener errorListener){
-		
 		String url = UrlParamGenerator.getPath(APIS.ADD_SPACE_TIME, cookId, cookMp,weekDays,fromTime,toTime);
 		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url,
 				null, listener, errorListener);

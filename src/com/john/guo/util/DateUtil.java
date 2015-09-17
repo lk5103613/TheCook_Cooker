@@ -51,8 +51,7 @@ public class DateUtil {
 	}
 	
 	public static String formatTime(String timeStr){
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm a", Locale.ENGLISH);
 		try {
 			Date date = sdf.parse(timeStr);
 			SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());

@@ -1,94 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="@dimen/margin" >
-    
-    <CheckBox 
-        android:id="@+id/check"
+    android:padding="5dip" >
+
+    <LinearLayout
+        android:id="@+id/check_container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
-        style="@style/CustomCheckboxTheme" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <CheckBox
+            android:id="@+id/check"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/pack_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin"
-        android:src="@drawable/image" />
+        android:id="@+id/tc_img"
+        android:layout_width="103dip"
+        android:layout_height="103dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/menu_img_01" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/margin"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="vertical" >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical" >
-
+            android:layout_height="wrap_content" >
             <TextView
-                android:id="@id/textview1"
+                android:id="@+id/tc_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:text="广东烧鸭套餐"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_b1" />
+                android:textColor="#424242"
+                android:textSize="17sp" />
 
-            <ImageView
+            <LinearLayout
                 android:id="@+id/delete"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tc_name"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/delete" />
+                android:gravity="right" >
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/delete_icon" />
+            </LinearLayout>
         </RelativeLayout>
 
-        <TextView
-            android:id="@id/textview2"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="￥28"
-            android:textColor="#BBBBBB"
-            android:textSize="@dimen/text_size_b1" />
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:paddingTop="5dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥"
+                android:textColor="#a1a1a1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="28"
+                android:textColor="#f39800"
+                android:textSize="20sp" />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
 
-            <ImageView
-                android:id="@+id/remove"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/jian" />
+            <LinearLayout
+                android:id="@+id/jian"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true" >
 
-            <TextView
-                android:id="@id/textview3"
+                <ImageView
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/car_jian" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="1份"
-                android:textColor="#BBBBBB"
-                android:textSize="@dimen/text_size_s1" />
+                android:layout_centerInParent="true"
+                android:orientation="horizontal" >
 
-            <ImageView
-                android:id="@+id/add"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                <TextView
+                    android:id="@+id/count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#f39800"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/danwei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/count"
+                    android:text="份"
+                    android:textColor="#a1a1a1"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jia"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/add" />
+                android:gravity="right"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/car_jia" />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 

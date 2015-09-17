@@ -191,10 +191,8 @@ public class ApproveActivity extends MyBaseActivity {
 		params.add(mImgPath);// avatar
 
 		mDataFetcher.fetchApprove(params, new Listener<JSONObject>() {
-
 			@Override
 			public void onResponse(JSONObject response) {
-
 				System.out.println("response " + response);
 			}
 		}, new ErrorListener() {
@@ -223,10 +221,9 @@ public class ApproveActivity extends MyBaseActivity {
 
 	private void showDatePop(DatePickerWindow datePickerWindow, View targetView) {
 		if (mDatePicker == null) {
-			mDatePicker = new DatePickerWindow(mContext, 300, 350,
+			mDatePicker = new DatePickerWindow(mContext, 400, 350,
 					(TextView) targetView);
 		}
-
 		mDatePicker.showAsDropDown(targetView);
 	}
 

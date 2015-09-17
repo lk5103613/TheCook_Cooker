@@ -40,5 +40,7 @@
     <color name="choise_color_4">#3a3a3a</color>
     <color name="btn_red_normal_bg_color">#ff7875</color>
     <color name="btn_red_pressed_bg_color">#f99c9a</color>
+    
+    <color name="primary_red_color">#991017</color>
 
 </resources>

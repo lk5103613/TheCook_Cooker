@@ -101,7 +101,7 @@ public class RegisterActivity extends MyBaseActivity {
 							Toast.makeText(mContext, "注册成功", Toast.LENGTH_SHORT).show();
 							Intent intent = null;
 							//如果是厨师则跳到厨师认证
-							if (TextUtils.equals("厨师", role)) {
+							if (TextUtils.equals("大厨", role)) {
 								 intent = new Intent(RegisterActivity.this, ApproveActivity.class);
 								 
 							} else{
@@ -152,7 +152,6 @@ public class RegisterActivity extends MyBaseActivity {
 			public void onClick(View arg0) {
 				dissmissPop();
 				roleEditText.setText("大厨");
-				
 			}
 		});
 		popview.findViewById(R.id.fu).setOnClickListener(new OnClickListener() {

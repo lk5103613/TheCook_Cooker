@@ -59,11 +59,12 @@ public class SpaceTimeSetting2Activity extends MyBaseActivity implements
 		mTitleView = (TextView) findViewById(R.id.title_middle_tv);
 		mFromTime = (EditText) findViewById(R.id.from_time);
 		mToTime = (EditText) findViewById(R.id.to_time);
-//		mFromTime.setInputType(InputType.TYPE_NULL); 
-//		mToTime.setInputType(InputType.TYPE_NULL);
 
 		mFromTime.setOnFocusChangeListener(this);
 		mToTime.setOnFocusChangeListener(this);
+
+		mFromTime.setOnClickListener(this);
+		mToTime.setOnClickListener(this);
 
 		mTitleView.setText("空档时间设置");
 		mBaoCun.setOnClickListener(this);
@@ -183,21 +184,27 @@ public class SpaceTimeSetting2Activity extends MyBaseActivity implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.action:
-			if (TextUtils.isEmpty(mFromTime.getText().toString()) || TextUtils.isEmpty(mToTime.getText().toString())) {
-				Toast.makeText(mContext, "请选择开始与结束时间", Toast.LENGTH_LONG).show();
+			if (TextUtils.isEmpty(mFromTime.getText().toString())
+					|| TextUtils.isEmpty(mToTime.getText().toString())) {
+				Toast.makeText(mContext, "请选择开始与结束时间", Toast.LENGTH_LONG)
+						.show();
 				return;
 			}
-			
 			if (weeks.isEmpty()) {
 				Toast.makeText(mContext, "请选择日期", Toast.LENGTH_LONG).show();
 				return;
 			}
 			addSpaceTime();
 			break;
+		case R.id.from_time:
+			mCurrentView = mFromTime;
+			break;
+		case R.id.to_time:
+			mCurrentView = mToTime;
+			break;
 		default:
 			break;
 		}
-
 	}
 
 	private void addSpaceTime() {
@@ -212,38 +219,30 @@ public class SpaceTimeSetting2Activity extends MyBaseActivity implements
 				fromTime, toTime, new Response.Listener<JSONObject>() {
 					@Override
 					public void onResponse(JSONObject response) {
-						CommonResult result = GsonUtil.gson.fromJson(response.toString(), CommonResult.class);
-						if (result.code==1) {
-							Toast.makeText(mContext, "设置成功", Toast.LENGTH_SHORT).show();
+						CommonResult result = GsonUtil.gson.fromJson(
+								response.toString(), CommonResult.class);
+						if (result.code == 1) {
+							Toast.makeText(mContext, "设置成功", Toast.LENGTH_SHORT)
+									.show();
 						} else {
-							Toast.makeText(mContext, "设置失败", Toast.LENGTH_SHORT).show();
+							Toast.makeText(mContext, "设置失败", Toast.LENGTH_SHORT)
+									.show();
 						}
 					}
-
-				}, new Response.ErrorListener() {
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						Toast.makeText(mContext, "请检查网络", Toast.LENGTH_SHORT)
-								.show();
-					}
-				});
-
+				}, mErrorListener);
 	}
 
 	private String list2Str(List<String> list, char separator) {
-		System.out.println("list " + list.size());
-
 		StringBuilder sb = new StringBuilder();
 		try {
 			for (int i = 0; i < list.size(); i++) {
-
-				sb.append(URLEncoder.encode(list.get(i), "utf-8")).append(separator);
+				sb.append(URLEncoder.encode(list.get(i), "utf-8")).append(
+						separator);
 			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		String result = sb.toString().substring(0, sb.toString().length() - 1);
-
 		return result;
 	}
 

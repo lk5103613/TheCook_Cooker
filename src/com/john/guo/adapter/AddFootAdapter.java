@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,22 +40,24 @@ public class AddFootAdapter extends BaseAdapter {
 		private TextView nameTV;
 		private TextView priceTV;
 		private TextView numberTV;
-		private ImageView add;
-		private ImageView remove;
-		private ImageView delete;
+		private ViewGroup add;
+		private ViewGroup remove;
+		private ViewGroup delete;
 		private ImageView img;
 		private CheckBox check;
+		private ViewGroup checkContainer;
 
 		public ViewHolder(View baseView) {
 			super(baseView);
-			nameTV = (TextView) findViewById(R.id.textview1);
-			priceTV = (TextView) findViewById(R.id.textview2);
-			numberTV = (TextView) findViewById(R.id.textview3);
-			add = (ImageView) findViewById(R.id.add);
-			remove = (ImageView) findViewById(R.id.remove);
-			delete = (ImageView) findViewById(R.id.delete);
-			img = (ImageView) findViewById(R.id.pack_img);
+			nameTV = (TextView) findViewById(R.id.tc_name);
+			priceTV = (TextView) findViewById(R.id.money);
+			numberTV = (TextView) findViewById(R.id.count);
+			add = (ViewGroup) findViewById(R.id.jia);
+			remove = (ViewGroup) findViewById(R.id.jian);
+			delete = (ViewGroup) findViewById(R.id.delete);
+			img = (ImageView) findViewById(R.id.tc_img);
 			check = (CheckBox) findViewById(R.id.check);
+			checkContainer = (ViewGroup) findViewById(R.id.check_container);
 			
 			add.setOnClickListener(new OnClickListener() {
 				@Override
@@ -98,6 +99,12 @@ public class AddFootAdapter extends BaseAdapter {
 					}
 					if(isChecked)
 						mSelected.add(position);
+				}
+			});
+			checkContainer.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					check.performClick();
 				}
 			});
 		}
@@ -153,8 +160,8 @@ public class AddFootAdapter extends BaseAdapter {
 		vh.check.setChecked(mSelected.contains(position));
 		mImgLoader.get(APIS.BASE_URL + menu.imgPath, ImageLoader.getImageListener(vh.img, R.drawable.img_error, R.drawable.img_error));
 		vh.nameTV.setText(menu.packname);
-		vh.priceTV.setText(Html.fromHtml("￥"+"<font color=#F39801>"+menu.price+"</font>"));
-		vh.numberTV.setText(Html.fromHtml("<font color=#F39801>"+menu.soldCnt+"</font>"+"份"));
+		vh.priceTV.setText(menu.price + "");
+		vh.numberTV.setText(menu.soldCnt + "");
 		vh.add.setTag(position);
 		vh.remove.setTag(position);
 		vh.delete.setTag(position);

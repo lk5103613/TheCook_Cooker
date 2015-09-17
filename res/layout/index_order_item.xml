@@ -161,7 +161,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:visibility="gone"
+        android:visibility="visible"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -175,11 +175,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_s3"
                 android:layout_weight="1"
-                android:background="@drawable/xmlbg_btn1"
+                android:background="@drawable/xmlbg_btn"
                 android:gravity="center"
                 android:padding="@dimen/margin"
                 android:text="修改金额"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_b1" />
 
             <Button

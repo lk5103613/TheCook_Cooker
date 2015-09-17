@@ -143,7 +143,7 @@
                 android:gravity="center"
                 android:padding="@dimen/margin"
                 android:text="获取验证码"
-                android:textColor="@color/black"
+                android:textColor="@color/validate_color"
                 android:textSize="@dimen/text_size"
                 android:onClick="sendCode" />
         </LinearLayout>

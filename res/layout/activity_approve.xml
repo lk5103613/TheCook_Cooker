@@ -20,19 +20,6 @@
             android:textColor="@color/white"
             android:textSize="@dimen/title_tv_text_size" />
 
-        <TextView
-            android:id="@id/title_middle_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:clickable="true"
-            android:gravity="center"
-            android:onClick="toReg"
-            android:singleLine="true"
-            android:text="注册"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
     </RelativeLayout>
 
     <ScrollView

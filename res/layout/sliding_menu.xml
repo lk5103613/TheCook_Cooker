@@ -120,6 +120,8 @@
             android:background="@drawable/csrz_01b"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:clickable="true"
+            android:onClick="setSpaceTime"
             android:paddingRight="10dp"
             android:paddingLeft="10dip" >
 

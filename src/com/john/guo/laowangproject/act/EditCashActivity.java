@@ -19,7 +19,6 @@ import com.john.guo.network.GsonUtil;
 
 public class EditCashActivity extends MyBaseActivity {
 
-	private TextView mTitle;
 	private TextView mAfterChange;
 	private EditText mDifEdit;
 	private TextView mTotalMoney;
@@ -37,20 +36,15 @@ public class EditCashActivity extends MyBaseActivity {
 		setContentView(R.layout.activity_editcash);
 		mContext = this;
 		
-		mTitle = (TextView) findViewById(R.id.title_middle_tv);
 		mAfterChange = (TextView) findViewById(R.id.after_change);
 		mDifEdit = (EditText) findViewById(R.id.dif_edit);
 		mTotalMoney = (TextView) findViewById(R.id.total_money);
 		mReason = (EditText) findViewById(R.id.reason);
 		
-		mTitle.setText("修改金额");
-		
 		Bundle params = getIntent().getExtras();
 		orderId = params.getString("order_id");
 		oldMoney = params.getFloat("total_money");
 		mTotalMoney.setText(oldMoney+"");
-		
-
 	}
 
 	public void change(View v) {
@@ -59,7 +53,6 @@ public class EditCashActivity extends MyBaseActivity {
 			Toast.makeText(mContext, "请输入金额", Toast.LENGTH_LONG).show();
 			return;
 		}
-		
 		switch (v.getId()) {
 		case R.id.plus_btn:
 			flag = 1;
@@ -91,9 +84,7 @@ public class EditCashActivity extends MyBaseActivity {
 				} else {
 					Toast.makeText(mContext, "修改失败", Toast.LENGTH_SHORT).show();
 				}
-				
 			}
-
 		}, new Response.ErrorListener() {
 			@Override
 			public void onErrorResponse(VolleyError error) {

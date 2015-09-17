@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Toast;
 import cn.jpush.android.api.JPushInterface;
 
@@ -52,6 +53,10 @@ public class MyBaseActivity extends Activity {
 	protected void onPause() {
 		super.onPause();
 		JPushInterface.onPause(mContext);
+	}
+	
+	public void back(View v) {
+		this.finish();
 	}
 	
 	protected LoginResult getLoginUser() {

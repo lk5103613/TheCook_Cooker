@@ -25,7 +25,7 @@ import com.john.guo.network.GsonUtil;
 import com.john.guo.title.TitleArgBuilder;
 import com.john.guo.title.TitleBuilder;
 
-public class AddFootActivity extends BaseActivity implements FragmentListener {
+public class AddFootActivity extends MyBaseActivity implements FragmentListener {
 	
 	private PullToRefreshListView footLV;
 	private int mCurrentPage = 0;
@@ -38,13 +38,6 @@ public class AddFootActivity extends BaseActivity implements FragmentListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_addfoot);
-		mDataFetcher = DataFetcher.getInstance(context);
-		updateList();
-	}
-	
-	@Override
-	protected void initView() {
-		new TitleBuilder(context, TitleArgBuilder.getBackBtnTitle(context, "加菜"));
 		footLV = (PullToRefreshListView) findViewById(R.id.listview);
 		mBtnAdd = (Button) findViewById(R.id.btn_add);
 		mBtnAdd.setText("确认共加"+mCurrentSelected+"道菜");
@@ -53,6 +46,8 @@ public class AddFootActivity extends BaseActivity implements FragmentListener {
 			public void onClick(View v) {
 			}
 		});
+		mDataFetcher = DataFetcher.getInstance(mContext);
+		updateList();
 	}
 	
 	private void updateList() {
@@ -62,19 +57,14 @@ public class AddFootActivity extends BaseActivity implements FragmentListener {
 				Type type = new TypeToken<ListResult<MenuEntity>>(){}.getType();
 				ListResult<MenuEntity> menus = GsonUtil.gson.fromJson(response.toString(), type);
 				if(mAdapter == null) {
-					mAdapter = new AddFootAdapter(context, menus.resultList);
+					mAdapter = new AddFootAdapter(mContext, menus.resultList);
 					mAdapter.setFragmentListener(AddFootActivity.this);
 					footLV.setAdapter(mAdapter);
 				} else {
 					mAdapter.updateList(menus.resultList);
 				}
 			}
-		}, new ErrorListener() {
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				Toast.makeText(context, "请检查网络", Toast.LENGTH_SHORT).show();
-			}
-		});
+		}, mErrorListener);
 	}
 
 	@Override

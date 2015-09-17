@@ -238,21 +238,9 @@ public class IndexOrderUI extends MyBaseActivity {
 		showDialog(true);
 	}
 	
-//	private ArrayList<ServiceRecordBean> initDataSource(){
-//		ArrayList<ServiceRecordBean> data = new ArrayList<ServiceRecordBean>();
-//		data.add(new ServiceRecordBean("2015-6-8 17:30", "王先生家服务4小时", false));
-//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-//		return data;
-//	}
+	public void setSpaceTime(View v) {
+		Intent intent = new Intent(mContext, SpaceTimeSetting2Activity.class);
+		startActivity(intent);
+	}
 	
 }
