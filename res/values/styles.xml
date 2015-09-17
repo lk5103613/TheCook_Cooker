@@ -26,5 +26,9 @@
         <item name="android:windowAnimationStyle">@style/slide</item>
     </style>
     
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/rdo_bg</item>
+    </style>
+    
 
 </resources>

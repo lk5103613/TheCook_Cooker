@@ -1,8 +1,9 @@
 package com.john.guo.laowangproject.act;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Dialog;
@@ -57,6 +58,7 @@ public class IndexOrderUI extends MyBaseActivity {
 	private TextView mLblCommentCnt;
 	
 	private Dialog mDialog;
+	private ServiceRecordAdapter mServiceAdapter;
 	
 	private int mCurrentOperate = IDLE;
 	
@@ -86,8 +88,8 @@ public class IndexOrderUI extends MyBaseActivity {
 			}
 		});
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mServiceRecordList.setAdapter(new ServiceRecordAdapter(mContext, initDataSource()));
 		initLeftMenu();
+		initRightMenu();
 		updateOrder();
 	}
 	
@@ -111,6 +113,22 @@ public class IndexOrderUI extends MyBaseActivity {
 				mLblCookName.setText(entity.truename);
 				mLblCommentCnt.setText(entity.commentcnt);
 				mLblZanCnt.setText(entity.zanCnt);
+			}
+		}, mErrorListener);
+	}
+	
+	private void initRightMenu() {
+		mDataFetcher.fetchServiceLog(mUser.cid, new Listener<JSONArray>() {
+			@Override
+			public void onResponse(JSONArray response) {
+				Type type = new TypeToken<List<ServiceRecordBean>>(){}.getType();
+				List<ServiceRecordBean> logs = GsonUtil.gson.fromJson(response.toString(), type);
+				if(mServiceAdapter == null) {
+					mServiceAdapter = new ServiceRecordAdapter(mContext, logs);
+					mServiceRecordList.setAdapter(mServiceAdapter);
+				} else {
+					mServiceAdapter.updateList(logs);
+				}
 			}
 		}, mErrorListener);
 	}
@@ -191,27 +209,6 @@ public class IndexOrderUI extends MyBaseActivity {
 		}).start();
 		Intent intent = new Intent(mContext, LoginActivity.class);
 		startActivity(intent);
-//		mDataFetcher.fetchExit(mUser.cid+"", new Listener<JSONObject>() {
-//			@Override
-//			public void onResponse(JSONObject response) {
-//				CommonResult result = GsonUtil.gson.fromJson(response.toString(), CommonResult.class);
-//				if(mDialog.isShowing())
-//					mDialog.dismiss();
-//				if(result.code == 1) {
-//					new Thread(new Runnable() {
-//						@Override
-//						public void run() {
-//							mLoginSharef.edit().putString(LOGIN_USER, null).commit();
-//						}
-//					}).start();
-//					Intent intent = new Intent(mContext, LoginActivity.class);
-//					startActivity(intent);
-//				} else {
-//					Toast.makeText(mContext, "登出失败", Toast.LENGTH_SHORT).show();
-//				}
-//				mCurrentOperate = IDLE;
-//			}
-//		}, mErrorListener);
 	}
 	
 	private void suspend() {
@@ -241,21 +238,21 @@ public class IndexOrderUI extends MyBaseActivity {
 		showDialog(true);
 	}
 	
-	private ArrayList<ServiceRecordBean> initDataSource(){
-		ArrayList<ServiceRecordBean> data = new ArrayList<ServiceRecordBean>();
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-		return data;
-	}
+//	private ArrayList<ServiceRecordBean> initDataSource(){
+//		ArrayList<ServiceRecordBean> data = new ArrayList<ServiceRecordBean>();
+//		data.add(new ServiceRecordBean("2015-6-8 17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		return data;
+//	}
 	
 }

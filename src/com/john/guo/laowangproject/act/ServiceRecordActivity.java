@@ -30,18 +30,18 @@ public class ServiceRecordActivity extends BaseActivity {
 	
 	private ArrayList<ServiceRecordBean> initDataSource(){
 		ArrayList<ServiceRecordBean> data = new ArrayList<ServiceRecordBean>();
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
-		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
-		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "王先生家服务4小时", false));
+//		data.add(new ServiceRecordBean("2015-6-8\t17:30", "李先生家服务6小时", false));
+//		data.add(new ServiceRecordBean("2015-7-7\t17:30", "该订单已经结算共计", true));
 		return data;
 	}
 
