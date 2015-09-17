@@ -38,4 +38,6 @@ public class APIS {
 	public final static String GET_SERVICE_LOG = BASE_URL + "/cook/index.php/AppCook/cookServiceLogFn?cid=%1";
 	
 	public static final String GET_MENU = BASE_URL + "/index.php/appPack/findPageList?currentPage=%1";
+	
+	public static final String SEND_CODE = "http://222.73.117.158/msg/HttpBatchSendSM?account=vip_lb_dcjd&pswd=vip_lb_dcjd001&mobile=%1&msg=%2&needstatus=true";
 }

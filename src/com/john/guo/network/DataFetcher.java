@@ -10,12 +10,14 @@ import org.json.JSONObject;
 import android.content.Context;
 
 import com.android.volley.Request.Method;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 
 public class DataFetcher {
 
@@ -136,5 +138,19 @@ public class DataFetcher {
 				null, listener, errorListener);
 		mQueue.add(request);
 	}
+	
+	public void fetchSendCode(String phone, String code, Listener<String> listener, ErrorListener errorListener) {
+    	String msg = "【大厨家到】尊敬的用户您好,本次验证码是:" + code;
+    	try {
+			msg = URLEncoder.encode(msg, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+    	String url = UrlParamGenerator.getPath(APIS.SEND_CODE, phone, msg);
+    	System.out.println(url);
+        StringRequest request = new StringRequest(Request.Method.GET, url, listener,
+                errorListener);
+        mQueue.add(request);
+    }
 
 }
