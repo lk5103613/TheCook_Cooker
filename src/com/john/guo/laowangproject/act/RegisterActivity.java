@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class RegisterActivity extends MyBaseActivity {
 		setContentView(R.layout.activity_register);
 		dataFetcher = DataFetcher.getInstance(this);
 		roleEditText = (EditText)findViewById(R.id.role_et);
+		
 		phoneEditText = (EditText)findViewById(R.id.phone_et);
 		pwdEditText = (EditText)findViewById(R.id.psw_et);
 		mContext = this;
@@ -55,6 +57,8 @@ public class RegisterActivity extends MyBaseActivity {
 		idCategoryIV.setOnClickListener(idCategoryIVClick);
 		
 		registerBtn = (Button)findViewById(R.id.register);
+		
+		roleEditText.setInputType(InputType.TYPE_NULL); 
 		registerBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
