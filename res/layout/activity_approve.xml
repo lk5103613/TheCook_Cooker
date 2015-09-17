@@ -115,7 +115,8 @@
                         android:padding="5dp"
                         android:textColor="#000000"
                         android:textSize="16sp"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLength="11" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -151,12 +152,13 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
                             android:paddingTop="5dp"
+                            android:textSize="@dimen/text_size_s1"
                             android:text="省"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:singleLine="true"/>
 
                         <View
                             android:layout_width="2dp"
@@ -191,12 +193,13 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
                             android:paddingTop="5dp"
                             android:text="市"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/text_size_s1"
+                            android:singleLine="true" />
 
                         <View
                             android:layout_width="2dp"
@@ -231,12 +234,13 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
                             android:paddingTop="5dp"
                             android:text="区"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/text_size_s1"
+                            android:singleLine="true" />
 
                         <View
                             android:layout_width="2dp"

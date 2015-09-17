@@ -9,8 +9,9 @@
 
     <ListView 
         android:id="@+id/dropdown_list"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="#bbbbbb" />
+        android:divider="#bbbbbb" 
+        android:scrollbars="none"/>
 
 </LinearLayout>
