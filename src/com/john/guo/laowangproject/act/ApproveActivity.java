@@ -14,6 +14,7 @@ import java.util.Random;
 import org.json.JSONObject;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -21,11 +22,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +54,7 @@ import com.john.guo.util.BitmapUtil;
 import com.john.guo.util.LocationUtil;
 import com.john.guo.util.UploadUtil;
 import com.john.guo.widget.DatePickerWindow;
+import com.john.guo.widget.DeleteableImageView;
 import com.john.guo.widget.DropdownWindow;
 import com.john.guo.widget.RoundImageView;
 import com.john.guo.widget.DropdownWindow.OnPopChangeListener;
@@ -85,6 +91,12 @@ public class ApproveActivity extends MyBaseActivity {
 	private EditText mIntroduction;
 	private TextView mXc, mCC, mBBC, mYC;
 	private TextView mWorkFromday;
+	private LinearLayout mContainer;
+	private DeleteableImageView mImage1;
+	private DeleteableImageView mImage2;
+	private DeleteableImageView mImage3;
+	private DeleteableImageView mImage4;
+
 	private List<Districts> mDistricts = new ArrayList<Districts>();
 	private List<City> mCities = new ArrayList<City>();
 	private List<Provience> mProviences = new ArrayList<Provience>();
@@ -99,6 +111,9 @@ public class ApproveActivity extends MyBaseActivity {
 
 	private int mProvienceId;
 	private int mCityId;
+
+	private int mCurrentImg;
+	private DeleteableImageView[] images;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +137,28 @@ public class ApproveActivity extends MyBaseActivity {
 		mBBC = (TextView) findViewById(R.id.bbc);
 		mYC = (TextView) findViewById(R.id.yc);
 		mWorkFromday = (TextView) findViewById(R.id.date_picker);
+		mContainer = (LinearLayout) findViewById(R.id.approve_container);
+		mImage1 = (DeleteableImageView) findViewById(R.id.image1);
+		mImage2 = (DeleteableImageView) findViewById(R.id.image2);
+		mImage3 = (DeleteableImageView) findViewById(R.id.image3);
+		mImage4 = (DeleteableImageView) findViewById(R.id.image4);
+
+		images = new DeleteableImageView[] { mImage1, mImage2, mImage3, mImage4 };
+
+		// 隐藏键盘
+		mContainer.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				v.setFocusable(true);
+				v.setFocusableInTouchMode(true);
+				v.requestFocus();
+				// 隐藏键盘
+				InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(mName.getWindowToken(), 0);
+				return false;
+			}
+		});
 
 		mCityManager = CityManager.getInstance(this);
 		mDistrictsManager = DistrictsManager.getInstance(this);
@@ -228,6 +265,23 @@ public class ApproveActivity extends MyBaseActivity {
 	}
 
 	public void changeUserIcon(View v) {
+		switch (v.getId()) {
+		case R.id.image1:
+			mCurrentImg = 0;
+			break;
+		case R.id.image2:
+			mCurrentImg = 1;
+			break;
+		case R.id.image3:
+			mCurrentImg = 2;
+			break;
+		case R.id.image4:
+			mCurrentImg = 3;
+			break;
+
+		default:
+			break;
+		}
 		mPhotoFor = PHOTO_FOR_ICON;
 		showDialog();
 	}
@@ -276,13 +330,9 @@ public class ApproveActivity extends MyBaseActivity {
 	}
 
 	private void addCer(Bitmap bmp) {
-		if (mCertificates.size() >= 3) {
-			return;
-		} else {
-			((ImageView) mCerContainer.getChildAt(mCertificates.size()))
-					.setVisibility(View.VISIBLE);
-			((ImageView) mCerContainer.getChildAt(mCertificates.size()))
-					.setImageBitmap(bmp);
+		images[mCurrentImg].setImageBitmap(bmp);
+		if (mCurrentImg < 3) {
+			images[++mCurrentImg].setVisibility(View.VISIBLE);
 		}
 		// mCerContainer.addView(img);
 	}
@@ -401,14 +451,11 @@ public class ApproveActivity extends MyBaseActivity {
 	private void getProvience() {
 		mProviences.clear();
 		mProviences.addAll(mProvienceManager.getAll());
-		System.out.println("province " + mProviences.size());
 	}
 
 	private void getDistricts(int cityId) {
-		System.out.println("cityid " + cityId);
 		mDistricts.clear();
 		mDistricts.addAll(mDistrictsManager.getDistrictsByCityId(cityId));
-		System.out.println("districts " + mDistricts.size());
 	}
 
 	private List<Provience> getAllPro() {

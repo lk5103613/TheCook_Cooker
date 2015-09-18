@@ -19,7 +19,6 @@
             android:text="厨师认证"
             android:textColor="@color/white"
             android:textSize="@dimen/title_tv_text_size" />
-
     </RelativeLayout>
 
     <ScrollView
@@ -27,8 +26,11 @@
         android:layout_height="wrap_content" >
 
         <LinearLayout
+            android:id="@+id/approve_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="vertical" >
 
             <RelativeLayout
@@ -45,9 +47,9 @@
                     android:id="@+id/user_icon"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
+                    android:layout_centerInParent="true"
                     android:clickable="true"
-                    android:onClick="changeUserIcon"
-                    android:layout_centerInParent="true" />
+                    android:onClick="changeUserIcon" />
             </RelativeLayout>
 
             <LinearLayout
@@ -99,11 +101,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="25dp"
                         android:background="@drawable/xmlbg_rectedit"
+                        android:inputType="number"
+                        android:maxLength="11"
                         android:padding="5dp"
                         android:textColor="#000000"
-                        android:textSize="16sp"
-                        android:inputType="number"
-                        android:maxLength="11" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,10 +127,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="25dp"
-                        android:clickable="true"
-                        android:onClick="openDrop"
                         android:layout_weight="1"
                         android:background="@drawable/xmlbg_rectedit"
+                        android:clickable="true"
+                        android:onClick="openDrop"
                         android:orientation="horizontal" >
 
                         <TextView
@@ -142,10 +144,10 @@
                             android:paddingLeft="3dp"
                             android:paddingRight="3dp"
                             android:paddingTop="5dp"
-                            android:textSize="@dimen/text_size_s1"
+                            android:singleLine="true"
                             android:text="省"
                             android:textColor="#000000"
-                            android:singleLine="true"/>
+                            android:textSize="@dimen/text_size_s1" />
 
                         <View
                             android:layout_width="2dp"
@@ -166,10 +168,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:clickable="true"
-                        android:onClick="openDrop"
                         android:layout_weight="1"
                         android:background="@drawable/xmlbg_rectedit"
+                        android:clickable="true"
+                        android:onClick="openDrop"
                         android:orientation="horizontal" >
 
                         <TextView
@@ -183,10 +185,10 @@
                             android:paddingLeft="3dp"
                             android:paddingRight="3dp"
                             android:paddingTop="5dp"
+                            android:singleLine="true"
                             android:text="市"
                             android:textColor="#000000"
-                            android:textSize="@dimen/text_size_s1"
-                            android:singleLine="true" />
+                            android:textSize="@dimen/text_size_s1" />
 
                         <View
                             android:layout_width="2dp"
@@ -207,10 +209,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:clickable="true"
-                        android:onClick="openDrop"
                         android:layout_weight="1"
                         android:background="@drawable/xmlbg_rectedit"
+                        android:clickable="true"
+                        android:onClick="openDrop"
                         android:orientation="horizontal" >
 
                         <TextView
@@ -224,10 +226,10 @@
                             android:paddingLeft="3dp"
                             android:paddingRight="3dp"
                             android:paddingTop="5dp"
+                            android:singleLine="true"
                             android:text="区"
                             android:textColor="#000000"
-                            android:textSize="@dimen/text_size_s1"
-                            android:singleLine="true" />
+                            android:textSize="@dimen/text_size_s1" />
 
                         <View
                             android:layout_width="2dp"
@@ -286,11 +288,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/xmlbg_rectedit"
+                    android:clickable="true"
+                    android:onClick="openDrop"
                     android:padding="5dp"
                     android:text="时间选择器"
                     android:textColor="#000000"
-                    android:onClick="openDrop"
-                    android:clickable="true"
                     android:textSize="16sp" />
 
                 <TextView
@@ -314,9 +316,9 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/check_bg"
-                        android:onClick="checkGoodAt"
                         android:clickable="true"
                         android:gravity="center"
+                        android:onClick="checkGoodAt"
                         android:padding="5dp"
                         android:text="湘菜"
                         android:textColor="#000000"
@@ -329,9 +331,9 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/check_bg"
+                        android:clickable="true"
                         android:gravity="center"
                         android:onClick="checkGoodAt"
-                        android:clickable="true"
                         android:padding="5dp"
                         android:text="川菜"
                         android:textColor="#000000"
@@ -344,9 +346,9 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/check_bg"
-                        android:onClick="checkGoodAt"
                         android:clickable="true"
                         android:gravity="center"
+                        android:onClick="checkGoodAt"
                         android:padding="5dp"
                         android:text="本帮菜"
                         android:textColor="#000000"
@@ -358,9 +360,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/check_bg"
-                        android:onClick="checkGoodAt"
                         android:clickable="true"
                         android:gravity="center"
+                        android:onClick="checkGoodAt"
                         android:padding="5dp"
                         android:text="粤菜"
                         android:textColor="#000000"
@@ -382,40 +384,42 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/xmlbg_rectedit"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:padding="10dp" >
+                    android:padding="10dp"
+                    android:weightSum="4" >
 
-                    <ImageView
+                    <com.john.guo.widget.DeleteableImageView
+                        android:id="@+id/image1"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="58dp"
                         android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        android:adjustViewBounds="true"/>
-
-                    <ImageView
-                        android:layout_width="0dp"
                         android:layout_weight="1"
+                        android:onClick="uploadCer"/>
+
+                    <com.john.guo.widget.DeleteableImageView
+                        android:id="@+id/image2"
+                        android:layout_width="0dp"
                         android:layout_height="58dp"
                         android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        android:adjustViewBounds="true"/>
-                    
-                    <ImageView
-                        android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="58dp"
-                        android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        android:adjustViewBounds="true"/>
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="58dp"
                         android:onClick="uploadCer"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/certificate" />
+                        android:visibility="gone"/>
+
+                    <com.john.guo.widget.DeleteableImageView
+                        android:id="@+id/image3"
+                        android:layout_width="0dp"
+                        android:layout_height="58dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1" 
+                        android:onClick="uploadCer"
+                        android:visibility="gone"/>
+
+                    <com.john.guo.widget.DeleteableImageView
+                        android:id="@+id/image4"
+                        android:layout_width="0dp"
+                        android:layout_height="58dp"
+                        android:layout_weight="1"
+                        android:onClick="uploadCer"
+                        android:visibility="gone"/>
                 </LinearLayout>
 
                 <Button
@@ -424,9 +428,9 @@
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/xmlbg_btn"
+                    android:onClick="update"
                     android:text="提交申请"
                     android:textColor="#FFFFFF"
-                    android:onClick="update"
                     android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
