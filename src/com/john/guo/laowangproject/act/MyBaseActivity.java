@@ -1,6 +1,7 @@
 package com.john.guo.laowangproject.act;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class MyBaseActivity extends Activity {
 	protected ErrorListener mErrorListener;
 	protected SharedPreferences mLoginSharef;
 	protected ImageLoader mImgLoader;
+	protected ProgressDialog mLoadingDialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,25 @@ public class MyBaseActivity extends Activity {
 			return null;
 		LoginResult result = GsonUtil.gson.fromJson(loginUser, LoginResult.class);
 		return result;
+	}
+	
+	protected void showLoading(boolean show) {
+		if(show) {
+			if(mLoadingDialog == null) {
+				mLoadingDialog = new ProgressDialog(this);
+				mLoadingDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+				mLoadingDialog.setMessage("请等待");
+			}
+			if (!mLoadingDialog.isShowing()) {
+				mLoadingDialog.show();
+			}
+			
+		} else {
+			if(mLoadingDialog == null)
+				return;
+			if(mLoadingDialog.isShowing()) 
+				mLoadingDialog.dismiss();
+		}
 	}
 
 }

@@ -16,11 +16,13 @@ import org.json.JSONObject;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.CursorJoiner.Result;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,9 +31,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +44,7 @@ import com.john.guo.adapter.CityPopAdapter;
 import com.john.guo.adapter.DistrictsPopAdapter;
 import com.john.guo.adapter.ProviencePopAdapter;
 import com.john.guo.adapter.SimpleAdapter;
+import com.john.guo.entity.BaseResult;
 import com.john.guo.entity.City;
 import com.john.guo.entity.Districts;
 import com.john.guo.entity.Provience;
@@ -53,16 +54,19 @@ import com.john.guo.network.GsonUtil;
 import com.john.guo.util.BitmapUtil;
 import com.john.guo.util.LocationUtil;
 import com.john.guo.util.UploadUtil;
+import com.john.guo.util.ValidateUtil;
 import com.john.guo.widget.DatePickerWindow;
 import com.john.guo.widget.DeleteableImageView;
+import com.john.guo.widget.DeleteableImageView.ImageActionListener;
 import com.john.guo.widget.DropdownWindow;
-import com.john.guo.widget.RoundImageView;
 import com.john.guo.widget.DropdownWindow.OnPopChangeListener;
+import com.john.guo.widget.RoundImageView;
 import com.like.storage.CityManager;
 import com.like.storage.DistrictsManager;
 import com.like.storage.ProvienceManager;
 
-public class ApproveActivity extends MyBaseActivity {
+public class ApproveActivity extends MyBaseActivity implements
+		ImageActionListener {
 
 	private final static int REQUEST_TAKE_PHOTO = 0;
 	private final static int REQUEST_FROM_FILE = 1;
@@ -86,7 +90,7 @@ public class ApproveActivity extends MyBaseActivity {
 	private List<String> mGoodAts = new ArrayList<String>();
 	private DataFetcher mDataFetcher;
 	private EditText mName;
-	private EditText mDel;
+	private EditText mTel;
 	private TextView mProvice, mCity, mDistrict;
 	private EditText mIntroduction;
 	private TextView mXc, mCC, mBBC, mYC;
@@ -127,7 +131,7 @@ public class ApproveActivity extends MyBaseActivity {
 		mUserIcon = (RoundImageView) findViewById(R.id.user_icon);
 		mCerContainer = (ViewGroup) findViewById(R.id.cer_container);
 		mName = (EditText) findViewById(R.id.name);
-		mDel = (EditText) findViewById(R.id.tel);
+		mTel = (EditText) findViewById(R.id.tel);
 		mProvice = (TextView) findViewById(R.id.provice_show);
 		mCity = (TextView) findViewById(R.id.city_show);
 		mDistrict = (TextView) findViewById(R.id.district_show);
@@ -142,6 +146,11 @@ public class ApproveActivity extends MyBaseActivity {
 		mImage2 = (DeleteableImageView) findViewById(R.id.image2);
 		mImage3 = (DeleteableImageView) findViewById(R.id.image3);
 		mImage4 = (DeleteableImageView) findViewById(R.id.image4);
+
+		mImage1.setImageActionListenr(this);
+		mImage2.setImageActionListenr(this);
+		mImage3.setImageActionListenr(this);
+		mImage4.setImageActionListenr(this);
 
 		images = new DeleteableImageView[] { mImage1, mImage2, mImage3, mImage4 };
 
@@ -182,7 +191,6 @@ public class ApproveActivity extends MyBaseActivity {
 			mDistrict.setText("区");
 			break;
 		case R.id.city:
-
 			if (mProvice.getText().toString().equals("省")) {
 				Toast.makeText(mContext, "请选择省", Toast.LENGTH_SHORT).show();
 				return;
@@ -197,8 +205,11 @@ public class ApproveActivity extends MyBaseActivity {
 				return;
 			}
 			getDistricts(mCityId);
-			showPopup(mDistrictDropdown, mDistrictTarget, mDistrict,
-					mDistrictsPopAdapter);
+			if (!mDistricts.isEmpty()) {
+				showPopup(mDistrictDropdown, mDistrictTarget, mDistrict,
+						mDistrictsPopAdapter);
+			}
+			
 			break;
 		case R.id.date_picker:
 			showDatePop(mDatePicker, v);
@@ -210,6 +221,9 @@ public class ApproveActivity extends MyBaseActivity {
 	}
 
 	public void update(View v) throws UnsupportedEncodingException {
+		if (!verify()) {
+			return;
+		}
 		List<String> params = new ArrayList<String>();
 		params.add(1 + "");// cid
 		params.add(URLEncoder.encode(mName.getText().toString(), "utf-8"));// name
@@ -231,6 +245,12 @@ public class ApproveActivity extends MyBaseActivity {
 			@Override
 			public void onResponse(JSONObject response) {
 				System.out.println("response " + response);
+				BaseResult result = GsonUtil.gson.fromJson(response.toString(), BaseResult.class);
+				if (result.code ==1) {
+					Toast.makeText(mContext, "提交成功", Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(mContext, "提交失败", Toast.LENGTH_SHORT).show();
+				}
 			}
 		}, new ErrorListener() {
 			@Override
@@ -239,11 +259,6 @@ public class ApproveActivity extends MyBaseActivity {
 
 			}
 		});
-	}
-
-	public void uploadCer(View v) {
-		mPhotoFor = PHOTO_FOR_CER;
-		showDialog();
 	}
 
 	private <T> void showPopup(DropdownWindow<T> popupWindow, View targetView,
@@ -265,23 +280,6 @@ public class ApproveActivity extends MyBaseActivity {
 	}
 
 	public void changeUserIcon(View v) {
-		switch (v.getId()) {
-		case R.id.image1:
-			mCurrentImg = 0;
-			break;
-		case R.id.image2:
-			mCurrentImg = 1;
-			break;
-		case R.id.image3:
-			mCurrentImg = 2;
-			break;
-		case R.id.image4:
-			mCurrentImg = 3;
-			break;
-
-		default:
-			break;
-		}
 		mPhotoFor = PHOTO_FOR_ICON;
 		showDialog();
 	}
@@ -334,12 +332,13 @@ public class ApproveActivity extends MyBaseActivity {
 		if (mCurrentImg < 3) {
 			images[++mCurrentImg].setVisibility(View.VISIBLE);
 		}
-		// mCerContainer.addView(img);
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		
 		if (requestCode == REQUEST_FROM_FILE) {
+			System.out.println("from file " + data);
 			if (data != null) {
 				Uri uri = data.getData();
 				Bitmap bitmap = null;
@@ -349,39 +348,15 @@ public class ApproveActivity extends MyBaseActivity {
 					final File file = BitmapUtil.getFileByUri(
 							getContentResolver(), uri);
 					Bitmap resizeBmp = BitmapUtil.getResizeBitmap(file);
-					if (mPhotoFor == PHOTO_FOR_ICON) {
-						mUserIcon.setImageBitmap(resizeBmp);
-					} else {
-						addCer(resizeBmp);
-					}
+					
 					if (data.getData() != null) {
 						uri = data.getData();
 					} else {
 						uri = Uri.parse(MediaStore.Images.Media.insertImage(
 								getContentResolver(), bitmap, null, null));
 					}
-					new AsyncTask<File, Void, String>() {
-						@Override
-						protected String doInBackground(File... params) {
-							File uploadFile = params[0];
-							DateFormat f2 = new SimpleDateFormat(
-									"yyyyMMddHHmmss");
-							String day = f2.format(new Date());
-							int max = 10000;
-							int min = 99999;
-							Random random = new Random();
-							int s = random.nextInt(max) % (max - min + 1) + min;
-							final String serverImgName = day + s;
-							try {
-								UploadUtil.post(uploadFile, APIS.UPLOAD,
-										serverImgName);
-								mImgPath = "upload/" + serverImgName;
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-							return null;
-						}
-					}.execute(file);
+					
+					new UploadTask(resizeBmp).execute(file);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -402,40 +377,7 @@ public class ApproveActivity extends MyBaseActivity {
 					final File file = BitmapUtil.getFileByUri(
 							getContentResolver(), uri);
 					Bitmap resizeBmp = BitmapUtil.getResizeBitmap(file);
-					if (mPhotoFor == PHOTO_FOR_ICON) {
-						mUserIcon.setImageBitmap(resizeBmp);
-					} else {
-						addCer(resizeBmp);
-					}
-					new AsyncTask<File, Void, String>() {
-						@Override
-						protected String doInBackground(File... params) {
-							File uploadFile = params[0];
-							DateFormat f2 = new SimpleDateFormat(
-									"yyyyMMddHHmmss");
-							String day = f2.format(new Date());
-							int max = 10000;
-							int min = 99999;
-							Random random = new Random();
-							int s = random.nextInt(max) % (max - min + 1) + min;
-							final String serverImgName = day + s;
-							try {
-								UploadUtil.post(uploadFile, APIS.UPLOAD,
-										serverImgName);
-								if (mPhotoFor == PHOTO_FOR_ICON)
-									mImgPath = "upload/" + serverImgName;
-								else if (mPhotoFor == PHOTO_FOR_CER) {
-									if (mCertificates.size() <= 3) {
-										mCertificates.add("upload/"
-												+ serverImgName);
-									}
-								}
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-							return null;
-						}
-					}.execute(file);
+					new UploadTask(resizeBmp).execute(file);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -512,5 +454,117 @@ public class ApproveActivity extends MyBaseActivity {
 		}
 
 	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.image1:
+			mCurrentImg = 0;
+			break;
+		case R.id.image2:
+			mCurrentImg = 1;
+			break;
+		case R.id.image3:
+			mCurrentImg = 2;
+			break;
+		case R.id.image4:
+			mCurrentImg = 3;
+			break;
+
+		default:
+			break;
+		}
+
+		mPhotoFor = PHOTO_FOR_CER;
+		showDialog();
+
+	}
+
+	@Override
+	public void onDelete(View v) {
+		((DeleteableImageView) v).removeImage();
+		switch (v.getId()) {
+		case R.id.image1:
+			mCertificates.remove(0);
+			break;
+		case R.id.image2:
+			mCertificates.remove(1);
+			break;
+		case R.id.image3:
+			mCertificates.remove(2);
+			break;
+		case R.id.image4:
+			mCertificates.remove(3);
+			break;
+
+		default:
+			break;
+		}
+
+	}
+	
+	private class UploadTask extends AsyncTask<File, Void, String>{
+			private Bitmap mBitmap;
+		
+			private UploadTask(Bitmap bitmap){
+				this.mBitmap = bitmap;
+				showLoading(true);
+			}
+			@Override
+			protected String doInBackground(File... params) {
+				
+				File uploadFile = params[0];
+				DateFormat f2 = new SimpleDateFormat(
+						"yyyyMMddHHmmss");
+				String day = f2.format(new Date());
+				int max = 10000;
+				int min = 99999;
+				Random random = new Random();
+				int s = random.nextInt(max) % (max - min + 1) + min;
+				final String serverImgName = day + s;
+				try {
+					UploadUtil.post(uploadFile, APIS.UPLOAD,
+							serverImgName);
+					if (mPhotoFor == PHOTO_FOR_ICON)
+						mImgPath = "upload/" + serverImgName;
+					else if (mPhotoFor == PHOTO_FOR_CER) {
+							mCertificates.add(mCurrentImg,"upload/"
+									+ serverImgName);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					return "0";
+				}
+				return "1";
+			}
+			
+			@Override
+			protected void onPostExecute(String result) {
+				super.onPostExecute(result);
+				if (TextUtils.equals(result, "1")) {
+					if (mPhotoFor == PHOTO_FOR_ICON) {
+						mUserIcon.setImageBitmap(mBitmap);
+					} else {
+						addCer(mBitmap);
+					}
+				}
+				showLoading(false);
+			}
+	}
+	
+	private boolean verify(){
+		if (TextUtils.isEmpty(mName.getText().toString()) || 
+				TextUtils.isEmpty(mTel.getText().toString())) {
+			Toast.makeText(mContext, "请输入必填项", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		
+		if (!ValidateUtil.validatePhoneNum(mTel.getText().toString())) {
+			Toast.makeText(mContext, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		return true;
+	}
+	
 
 }
